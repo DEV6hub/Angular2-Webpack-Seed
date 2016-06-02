@@ -8,6 +8,7 @@ A seed project for [Angular 2](https://angular.io) using [WebPack](https://webpa
 - SASS Lint
 - TypeScript Compilation
 - TSLint
+- [Codelyzer](https://github.com/mgechev/codelyzer)
 - Typings
 - Image Minification
 - Global environment variables injected from the contents of the `json` files in `config/`
