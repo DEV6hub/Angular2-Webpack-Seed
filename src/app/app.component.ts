@@ -5,10 +5,14 @@ import { Component, OnInit } from '@angular/core';
   template: require('./app.component.html'),
   styles: [require('./app.component.scss')]
 })
-
 export class AppComponent implements OnInit {
+  title: string;
 
-  constructor() { }
+  constructor() {
+    this.title = 'My First Angular 2 App';
+  }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    // Initialize component with service data
+  }
 }
