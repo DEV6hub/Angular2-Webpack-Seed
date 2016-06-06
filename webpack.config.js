@@ -49,10 +49,6 @@ const config = {
 
 
   plugins: [
-    // Cleans out your build folder
-    // Reference: https://github.com/johnagan/clean-webpack-plugin
-    new CleanWebpackPlugin(['dist']),
-
     // Splits vendor and polyfill modules into their respective bundles
     // Reference: https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin
     new webpack.optimize.CommonsChunkPlugin({
@@ -114,7 +110,8 @@ const config = {
       // Reference: https://github.com/s-panferov/awesome-typescript-loader
       {
         test: /\.ts$/,
-        loader: 'awesome-typescript-loader'
+        loader: 'awesome-typescript-loader',
+        exclude: [isTest ? /\.e2e\.ts$/ : /\.(spec|e2e)\.ts$/]
       },
 
       // Compile Global SCSS files to CSS files
@@ -122,9 +119,10 @@ const config = {
       // postcss-loader: https://github.com/postcss/postcss-loader
       // css-loader: https://github.com/webpack/css-loader
       // style-loader: https://github.com/webpack/style-loader
+      // null-loader: https://github.com/webpack/null-loader
       {
         test: /\.s(c|a)ss$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!postcss-loader!sass-loader'),
+        loader: isTest ? 'null-loader' : ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!postcss-loader!sass-loader'),
         exclude: /app\//
       },
 
@@ -226,14 +224,21 @@ if (isDev) {
 
 // Test Environment Settings
 if (isTest) {
+
+  // Entry points are defined in karma config. Remove for testing to prevent duplicates
+  config.entry = undefined;
+
   // Switch loaders to debug mode
   config.debug = true;
 
-  config.plugins.push(
+  // Change source map style to use with karma-sourcemap-loader
+  config.devtool = 'inline-source-map';
+
+  config.plugins = [
     // Add global variables to use in your code
     // Reference: https://github.com/ArikMaor/extended-define-webpack-plugin
     new ExtendedDefineWebpackPlugin(testEnvVars)
-  )
+  ]
 }
 
 // Production Environment Settings
@@ -241,6 +246,10 @@ if (isProduction) {
   config.debug = false;
 
   config.plugins.push(
+    // Cleans out your build folder
+    // Reference: https://github.com/johnagan/clean-webpack-plugin
+    new CleanWebpackPlugin(['dist']),
+
     // Add global variables to use in your code
     // Reference: https://github.com/ArikMaor/extended-define-webpack-plugin
     new ExtendedDefineWebpackPlugin(prodEnvVars),

@@ -1,21 +1,23 @@
 {
-  "name": "angular2-seed",
+  "name": "angular2-webpack-seed",
   "version": "1.0.0",
   "author": {
     "name": "DEV6",
     "url": "http://dev6.com"
   },
-  "description": "",
+  "description": "A seed project for Angular 2 using Webpack",
   "repository": {
-    "url": ""
+    "type": "git",
+    "url": "https://github.com/DEV6hub/Angular2-Webpack-Seed"
   },
-  "license": "",
+  "license": "MIT",
   "scripts": {
     "build": "NODE_ENV='production' webpack --progress --display-error-details",
     "postinstall": "typings install",
     "server": "webpack-dev-server --inline --progress --display-error-details --port 3000 --open",
     "start": "npm run server",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "NODE_ENV='test' karma start",
+    "test-watch": "NODE_ENV='test' karma start --no-single-run --auto-watch",
     "typings": "typings"
   },
   "devDependencies": {
@@ -31,8 +33,17 @@
     "file-loader": "^0.8.5",
     "html-webpack-plugin": "^2.17.0",
     "image-webpack-loader": "^1.8.0",
+    "jasmine-core": "^2.4.1",
     "json-loader": "^0.5.4",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^1.7.0",
     "node-sass": "^3.7.0",
+    "null-loader": "^0.1.1",
+    "phantomjs-prebuilt": "^2.1.7",
     "postcss-loader": "^0.9.1",
     "raw-loader": "^0.5.1",
     "sass-lint": "^1.7.0",
