@@ -134,7 +134,7 @@ const config = {
       {
         test: /\.s(c|a)ss$/,
         loaders: ['css-to-string-loader', 'css-loader?sourceMap', 'postcss-loader', 'sass-loader'],
-        exclude: /styles\//
+        include: /app\//
       },
 
       // Returned parsed JSON objects
