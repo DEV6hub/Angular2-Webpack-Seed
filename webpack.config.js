@@ -69,10 +69,12 @@ const config = {
 
     // Copy remaining files from src to dist
     // Reference: https://github.com/kevlened/copy-webpack-plugin
-    new CopyWebpackPlugin([
-      { from: 'favicon.ico' },
-      { from: __dirname + '/public', to: 'public' }
-    ]),
+    new CopyWebpackPlugin([{
+      from: 'favicon.ico'
+    }, {
+      from: __dirname + '/public',
+      to: 'public'
+    }]),
 
     // Lint our SCSS files
     // Reference: https://github.com/alleyinteractive/sasslint-webpack-plugin
@@ -89,7 +91,8 @@ const config = {
       // Reference: https://github.com/wbuchwalter/tslint-loader
       {
         test: /\.ts$/,
-        loader: 'tslint-loader'
+        loader: 'tslint-loader',
+        exclude: /node_modules/
       },
 
       // Extract sourceMappingURL comments from JavaScript files for Webpack to use
