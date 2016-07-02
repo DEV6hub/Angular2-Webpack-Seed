@@ -14,6 +14,7 @@ A seed project for [Angular 2](https://angular.io) using [WebPack](https://webpa
 - Global environment variables injected from the contents of the `json` files in `config/`
 - Cache busting hashes on all required assets
 - Unit testing with Karma and Jasmine
+- [Extended Jasmine Matchers](https://github.com/JamieMason/karma-jasmine-matchers)
 - End-to-end testing with Protractor and Jasmine
 
 ## NPM Scripts
