@@ -1,8 +1,6 @@
 import {
   beforeEachProviders,
-  describe,
-  expect,
-  it,
+  it, // Deprecated, however removing this import throws a type error in RC4
   inject
 } from '@angular/core/testing';
 import { AppComponent } from './app.component';
