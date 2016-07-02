@@ -64,7 +64,6 @@
       true,
       "ignore-params"
     ],
-    "no-trailing-comma": true,
     "no-internal-module": true,
     "no-null-keyword": false,
     "no-require-imports": false,
@@ -100,8 +99,7 @@
     ],
     "switch-default": true,
     "trailing-comma": [
-      true,
-      {
+      true, {
         "multiline": "never",
         "singleline": "never"
       }
@@ -115,15 +113,13 @@
       "member-variable-declaration"
     ],
     "typedef-whitespace": [
-      true,
-      {
+      true, {
         "call-signature": "nospace",
         "index-signature": "nospace",
         "parameter": "nospace",
         "property-declaration": "nospace",
         "variable-declaration": "nospace"
-      },
-      {
+      }, {
         "call-signature": "space",
         "index-signature": "space",
         "parameter": "space",
@@ -190,6 +186,7 @@
       "dev6"
     ],
     "component-class-suffix": true,
-    "directive-class-suffix": true
+    "directive-class-suffix": true,
+    "import-destructuring-spacing": true
   }
 }
