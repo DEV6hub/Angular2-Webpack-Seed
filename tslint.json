@@ -105,13 +105,13 @@
       }
     ],
     "triple-equals": true,
-    "typedef": [
-      true,
-      "call-signature",
-      "parameter",
-      "property-declaration",
-      "member-variable-declaration"
-    ],
+    // "typedef": [
+    //   true,
+    //   "call-signature",
+    //   "parameter",
+    //   "property-declaration",
+    //   "member-variable-declaration"
+    // ],
     "typedef-whitespace": [
       true, {
         "call-signature": "nospace",
