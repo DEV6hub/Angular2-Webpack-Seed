@@ -1,13 +1,15 @@
 import {
   addProviders,
-  it, // Deprecated, however removing this import throws a type error in RC4 when combined
   inject
 } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
-beforeEach(() => addProviders([AppComponent]));
-
 describe('AppComponent', () => {
+  let app: AppComponent;
+
+  beforeEach(() => addProviders([AppComponent]));
+  beforeEach(inject([AppComponent], (component: AppComponent) => app = component));
+
   it('should exist',
     inject([AppComponent], (app: AppComponent) => {
       expect(app).toBeTruthy();
